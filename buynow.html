@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(45deg, #3498db, #e74c3c, #3498db);
+      background-size: 300% 200%;
+      animation:cubic-bezier(0.755, 0.05, 0.855, 0.06)
+    }
+
+    @keyframes gradientChange {
+      0% {
+        background-position: 0% 0%;
+      }
+      100% {
+        background-position: 500% 100%;
+      }
+    }
+
+    .container {
+      background-color: rgba(11, 7, 7, 0.9);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(225, 16, 16, 0.1);
+      animation: fadeInUp 0.5s ease-out;
+      max-width: 300px;
+      width: 900%;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #3498db;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 10px;
+      color: #555;
+    }
+
+    input,
+    textarea,
+    select,
+    button {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      transition: border-color 0.3s;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #3498db;
+    }
+
+    button {
+      background-color: #3498db;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    
+      animation: colorChange 4s infinite alternate;
+    }
+
+    @keyframes colorChange {
+      0% {
+        color: #3498db;
+      }
+      50% {
+        color: #e74c3c;
+      }
+      100% {
+        color: #3498db;
+      }
+    }
+  </style>
+  <title>Wholesale Fertilizer Store</title>
+</head>
+<body>
+
+<div class="container">
+  
+  <h2>Wholesale Fertilizer/Seeds Online Registration</h2>
+  <h2>Wholesale Fertilizer/Seeds Online Registration</h2>
+  
+  <label for="dateTime">Date and Time:</label>
+  <input type="text" id="dateTime" name="dateTime" readonly>
+
+  <form id="registrationForm" action="/process_order.php" method="post">
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" name="fullName" required>
+
+    <label for="productName">Product Name:</label>
+    <input type="text" id="productName" name="productName" required>
+
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" name="phone" required>
+
+    <label for="address">Address:</label>
+    <textarea id="address" name="address" rows="4" required></textarea>
+
+    <label for="quantity">Quantity (in tons):</label>
+    <input type="number" id="quantity" name="quantity" min="1" required>
+
+    <label for="paymentMethod">Payment Method:</label>
+    <select id="paymentMethod" name="paymentMethod" required>
+      <option value="creditCard">Credit Card</option>
+      <option value="paypal">PayPal</option>
+      <option value="cashOnDelivery">Cash On Delivery</option>
+     
+    </select>
+
+    
+    <button><a href="submit.html" onclick="submitForm()">Submit Order</a></button>
+    <button type="print">print</button>
+  </form>
+</div>
+
+<script>
+  function getCurrentDateTime() {
+    const now = new Date();
+    const dateTimeString = now.toLocaleString();
+    return dateTimeString;
+  }
+
+  
+  document.addEventListener('DOMContentLoaded', function () {
+    const dateTimeField = document.getElementById('dateTime');
+    dateTimeField.value = getCurrentDateTime();
+  });
+</script>
+</body>
+</html>
